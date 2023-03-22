@@ -20,7 +20,10 @@ Press Ctrl + Shift + p to start a new project.
 - Spring boot version : 3.0.4
 - Java version : 17
 
-You have to select those dependencies : 
+Pour installer toutes les dépendances :
+- npm install
+
+You have to select those dependencies :
 - Spring Boot Devtools
 - Lombok 
 - Spring Web
@@ -30,15 +33,20 @@ You have to select those dependencies :
 - Spring Data Jpa
 - MySql Driver
 
-Install vuetify using VUEJS
-
-Command to run vue server : 
-- Open a new terminal - 
-- cd {path/to/my/vue/app}
-- then start the serveur with the following command : npm run serve
+Install vuetify using VUEJS 
+- npm install --global @vue/cli
 
 Command to run Spring server : 
 - Open a new terminal - 
 - Go manually to src/main/java/com/dystopia/DystopiaApplication.java
 - Make sure that java is running at the bottom-right of VS code
 - Then click on debug/run over the main method
+
+Command to run vue server : 
+- Open a new terminal - 
+- cd {path/to/my/vue/app}
+- then start the serveur with the following command : npm run serve
+
+le port 8081 pour acceder à l'application
+
+le port 8080 pour accès API et BDD
