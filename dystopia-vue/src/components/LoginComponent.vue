@@ -59,12 +59,16 @@ export default {
   background-image: url("../assets/geometricGradient.jpg");
 }
   svg {
-    height: 95vh;
-    width: 95vw; }
+    height: 40vh;
+    width: 40vw; 
+    position: absolute;
+    top: 30%;
+    left: 30%;
+  }
 
   .st0, .st1, .st2, .st3 {
     fill: none;
-    stroke: #016063;  
+    stroke: #037175;  
     stroke-width: 42;
     stroke-miterlimit: 10; }
 
