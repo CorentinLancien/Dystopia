@@ -9,5 +9,4 @@ class DystopiaApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
