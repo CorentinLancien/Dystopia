@@ -23,4 +23,7 @@ public class Joueur {
 
     @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name = "riotAccName", nullable = false)
+    private String riotAccName;
 }

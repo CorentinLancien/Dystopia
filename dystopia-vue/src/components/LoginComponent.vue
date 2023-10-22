@@ -1,41 +1,50 @@
 <template>
   <v-app id="login">
-    <h1>login</h1>
-    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
-  <!-- Stroke ring -->
-    <circle class="st0" cx="500" cy="500" r="302.8">
-      <animateTransform attributeType="xml"
-                        attributeName="transform"
-                        type="rotate"
-                        from="0 500 500"
-                        to="360 500 500"
-                        dur="100s"
-                        repeatCount="indefinite"/>
-      </circle>
-      <!-- Inner ring -->
-      <circle class="st1" cx="500" cy="500" r="237.7">
-          <animateTransform attributeType="xml"
-                            attributeName="transform"
-                            type="rotate"
-                            from="0 500 500"
-                            to="360 500 500"
-                            dur="40s"
-                            repeatCount="indefinite"/>
-      </circle>
-      <!-- Outer ring -->
-      <circle class="st2" cx="500" cy="500" r="366.8" transform="rotate(0 500 500)">
-        <animateTransform attributeType="xml"
-                          attributeName="transform"
-                          type="rotate"
-                          from="0 500 500"
-                          to="-360 500 500"
-                          dur="50s"
-                          repeatCount="indefinite"/>
-      </circle>
-       <!-- Outer thin ring -->
-      <circle class="st3" cx="500" cy="500" r="385.1"/>
-    </svg>
+    <v-container class="fill-height align-center justify-center">
+      <v-card
+        class="mx-auto text-white"
+        width="400"
+        variant="text"
+      >
+      <v-card-item>
+        <v-form fast-fail @submit.prevent>
+          <v-text-field
+            v-model="pseudo"
+            label="Pseudo"
+            :rules="PseudoRules"
+          ></v-text-field>
+
+          <v-text-field
+            v-model="riotAccPseudo"
+            label="Pseudo league of legends"
+            :rules="RioatAccRules"
+          ></v-text-field>
+
+          <v-text-field
+            v-model="email"
+            label="Email"
+            :rules="EmailRules"
+            type="email"
+          ></v-text-field>
+
+          <v-text-field
+            v-model="password"
+            label="Mot de passe"
+            :rules="PasswordRules"
+            type="password"
+          ></v-text-field>
+
+          <v-text-field
+            v-model="repetedPassword"
+            label="Répéter le mot de passe"
+            type="password"
+            :rules="RepetedPasswordRules"
+          ></v-text-field>
+          <v-btn type="submit" variant="text" block class="mt-2">Submit</v-btn>
+        </v-form>
+      </v-card-item>
+      </v-card>
+    </v-container>
   </v-app>
 </template>
 
@@ -45,7 +54,39 @@ export default {
   components: {
   },
   data: () => ({
+    pseudo: '',
+    riotAccPseudo: '',
+    email: '',
+    password: '',
+    repetedPassword: '',
+    PseudoRules: [
+        value => {
+          if (value?.length > 3) return true
 
+          return 'Le pseudo doit être supérieur à 3 caractères.'
+        },
+      ],
+      EmailRules: [
+        value => {
+          if (value?.length > 3) return true
+
+          return 'First name must be at least 3 characters.'
+        },
+      ],
+      PasswordRules: [
+        value => {
+          if (value?.length > 3) return true
+
+          return 'First name must be at least 3 characters.'
+        },
+      ],
+      RepetedPasswordRules: [
+        value => {
+          if (value?.length > 3) return true
+
+          return 'First name must be at least 3 characters.'
+        },
+      ],
   }),
   methods: {
   },  
@@ -56,33 +97,50 @@ export default {
 
 <style scoped>
 #login {
-  background-image: url("../assets/geometricGradient.jpg");
+  background: url("../assets/dystopia-bg.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-  svg {
-    height: 40vh;
-    width: 40vw; 
-    position: absolute;
-    top: 30%;
-    left: 30%;
+
+.v-card{
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  display: grid;
+}
+.v-form {
+  position: relative;
+  justify-content:space-around;
+  align-items:start;
+  z-index: 10;
+}
+.v-card::before {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 140%;
+  background: linear-gradient(#da843c, #1beee7);
+  animation: animate 4s linear infinite;
+  justify-self: center;
+  align-self: center;
+}
+.v-card::after{
+  content: '';
+  position: absolute; 
+  background: radial-gradient(#07253d, #0f0f2e);  
+  inset: 4px;
+}
+@keyframes animate
+{
+  0%
+  {
+    transform: rotate(0deg);
   }
-
-  .st0, .st1, .st2, .st3 {
-    fill: none;
-    stroke: #037175;  
-    stroke-width: 42;
-    stroke-miterlimit: 10; }
-
-  .st0 {
-    stroke-dasharray: 12.1947,12.1947,12.1947,12.1947,12.1947,12.1947; }
-
-  .st1 {
-    stroke-dasharray: 50,90,200,30,40,0; }
-
-  .st2 {
-    stroke-linecap: square;
-    stroke-dasharray: 120, 20, 110, 20, 140; }
-
-  .st3 {
-    stroke-width: 16;
-    stroke-linecap: square; }
+  100%
+  {
+    transform: rotate(360deg);
+  }
+}
 </style>
